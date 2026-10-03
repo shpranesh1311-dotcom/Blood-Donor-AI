@@ -1,0 +1,99 @@
+{
+  "best_model_name": "RandomForest",
+  "feature_columns": [
+    "age",
+    "total_donations",
+    "previous_requests_received",
+    "previous_response_rate",
+    "average_response_time_minutes",
+    "current_availability",
+    "distance_km",
+    "urgency_score",
+    "units_required",
+    "hour_of_day",
+    "day_of_week",
+    "is_o_negative"
+  ],
+  "training_rows": 24000,
+  "test_rows": 6000,
+  "class_distribution": {
+    "1": 0.7292,
+    "0": 0.2708
+  },
+  "all_candidate_metrics": [
+    {
+      "model": "LogisticRegression",
+      "accuracy": 0.7023,
+      "precision": 0.8641,
+      "recall": 0.7022,
+      "f1_score": 0.7748,
+      "roc_auc": 0.7813,
+      "confusion_matrix": [
+        [
+          1142,
+          483
+        ],
+        [
+          1303,
+          3072
+        ]
+      ]
+    },
+    {
+      "model": "RandomForest",
+      "accuracy": 0.7273,
+      "precision": 0.8616,
+      "recall": 0.7458,
+      "f1_score": 0.7996,
+      "roc_auc": 0.7882,
+      "confusion_matrix": [
+        [
+          1101,
+          524
+        ],
+        [
+          1112,
+          3263
+        ]
+      ]
+    },
+    {
+      "model": "XGBoost",
+      "accuracy": 0.7183,
+      "precision": 0.8651,
+      "recall": 0.7271,
+      "f1_score": 0.7901,
+      "roc_auc": 0.7861,
+      "confusion_matrix": [
+        [
+          1129,
+          496
+        ],
+        [
+          1194,
+          3181
+        ]
+      ]
+    }
+  ],
+  "calibrated_metrics": {
+    "model": "RandomForest (calibrated)",
+    "accuracy": 0.7702,
+    "precision": 0.7996,
+    "recall": 0.9138,
+    "f1_score": 0.8529,
+    "roc_auc": 0.7878,
+    "confusion_matrix": [
+      [
+        623,
+        1002
+      ],
+      [
+        377,
+        3998
+      ]
+    ]
+  },
+  "random_seed": 42,
+  "notes": "Model predicts the PROBABILITY that a donor responds to an emergency request. This is a probabilistic estimate for prioritisation/assistance only - it does not guarantee donor behaviour and does not replace human judgement by hospital staff or the blood bank."
+}

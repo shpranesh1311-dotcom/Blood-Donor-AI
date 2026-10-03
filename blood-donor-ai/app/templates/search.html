@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Find Donors - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Find &amp; Match Donors</h4>
+
+<div class="row g-4">
+  <div class="col-lg-4">
+    <div class="card-clean p-4">
+      <div class="mb-3">
+        <label class="form-label">Blood Group Needed</label>
+        <select class="form-select" id="fBloodGroup">
+          <option>O+</option><option>O-</option><option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option><option>AB+</option><option>AB-</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">City / Area contains</label>
+        <input type="text" class="form-control" id="fCity" placeholder="e.g. Peelamedu (optional)">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Search center (click map to change)</label>
+        <div id="searchMap" class="donor-map"></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Max Distance (km): <span id="distVal">30</span></label>
+        <input type="range" class="form-range" id="fDistance" min="1" max="50" value="30">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Urgency Context</label>
+        <select class="form-select" id="fUrgency">
+          <option>Critical</option><option selected>High</option><option>Medium</option><option>Low</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Min. Response Probability: <span id="probVal">0%</span></label>
+        <input type="range" class="form-range" id="fProb" min="0" max="90" value="0">
+      </div>
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" id="fAvailOnly">
+        <label class="form-check-label" for="fAvailOnly">Currently available donors only</label>
+      </div>
+      <button id="searchBtn" class="btn btn-danger w-100">Search &amp; Rank Donors</button>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div id="searchResults" class="card-clean p-4">
+      <p class="text-muted mb-0">Set your filters and click "Search &amp; Rank Donors" to see AI-ranked, blood-compatible candidates.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/search.js"></script>
+{% endblock %}

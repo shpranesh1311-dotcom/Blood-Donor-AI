@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Donor Management - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Donor Management</h4>
+<p class="text-muted">Browsing the synthetic donor database. No real personal contact information is stored or displayed in this demo.</p>
+
+<div class="card-clean p-3 mb-3">
+  <div class="row g-2 align-items-end">
+    <div class="col-md-2">
+      <label class="form-label small mb-1">Blood Group</label>
+      <select class="form-select form-select-sm" id="dfGroup">
+        <option value="">All</option>
+        <option>O+</option><option>O-</option><option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option><option>AB+</option><option>AB-</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label small mb-1">City contains</label>
+      <input type="text" class="form-control form-control-sm" id="dfCity" placeholder="e.g. Gandhipuram">
+    </div>
+    <div class="col-md-2">
+      <label class="form-label small mb-1">Availability</label>
+      <select class="form-select form-select-sm" id="dfAvail">
+        <option value="">All</option>
+        <option value="true">Available</option>
+        <option value="false">Unavailable</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-sm btn-danger w-100" id="dfSearchBtn">Filter</button>
+    </div>
+    <div class="col-md-3 text-md-end text-muted small" id="dfCount"></div>
+  </div>
+</div>
+
+<div class="card-clean p-3">
+  <div id="donorTableWrap" class="table-responsive">
+    <table class="table table-sm table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Donor ID</th><th>Age</th><th>Gender</th><th>Blood Group</th><th>City</th>
+          <th>Total Donations</th><th>Avg. Response (min)</th><th>Preference</th><th>Availability</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="donorTableBody">
+        <tr><td colspan="10" class="text-muted">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/donors.js"></script>
+{% endblock %}

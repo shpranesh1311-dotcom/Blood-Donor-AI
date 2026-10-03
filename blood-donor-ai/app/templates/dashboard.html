@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Dashboard Overview</h4>
+
+<div id="statCards" class="row g-3 mb-4"></div>
+
+<div class="row g-3 mb-4">
+  <div class="col-lg-4 col-md-6">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Donors by Blood Group</h6>
+      <canvas id="chartBloodGroup" height="220"></canvas>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Available vs Unavailable Donors</h6>
+      <canvas id="chartAvailability" height="220"></canvas>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Requests by Urgency</h6>
+      <canvas id="chartUrgency" height="220"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-lg-8">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Monthly Emergency Requests (last 6 months in data)</h6>
+      <canvas id="chartMonthly" height="140"></canvas>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="chart-card h-100">
+      <h6 class="fw-bold mb-3">Response Performance</h6>
+      <p class="mb-1 text-muted small">Overall historical response rate</p>
+      <h3 id="responseRateVal" class="fw-bold">--</h3>
+      <p class="mb-1 text-muted small mt-3">Average donor response time</p>
+      <h3 id="avgResponseVal" class="fw-bold">--</h3>
+    </div>
+  </div>
+</div>
+
+<div class="chart-card">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h6 class="fw-bold mb-0">Recent Emergency Requests</h6>
+    <a href="/history" class="btn btn-sm btn-outline-danger">View all</a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Request ID</th><th>Blood Group</th><th>Units</th><th>Urgency</th>
+          <th>Location</th><th>Status</th><th>Compatible Donors</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="recentRequestsBody">
+        <tr><td colspan="8" class="text-muted">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

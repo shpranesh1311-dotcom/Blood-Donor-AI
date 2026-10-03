@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Emergency Blood Request - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Emergency Blood Request</h4>
+
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card-clean p-4">
+      <form id="requestForm">
+        <div class="mb-3">
+          <label class="form-label">Required Blood Group</label>
+          <select class="form-select" id="bloodGroup" required>
+            <option value="">Select...</option>
+            <option>O+</option><option>O-</option><option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option><option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Units Required</label>
+          <input type="number" class="form-control" id="units" min="1" max="20" value="2" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Urgency</label>
+          <select class="form-select" id="urgency" required>
+            <option>Critical</option><option selected>High</option><option>Medium</option><option>Low</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Hospital / Area Name</label>
+          <input type="text" class="form-control" id="area" placeholder="e.g. Coimbatore Central" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Location (click on the map to set exact point)</label>
+          <div id="pickMap" class="donor-map"></div>
+          <div class="form-text">Selected: <span id="coordsLabel">11.0016, 76.9558 (default: Coimbatore)</span></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Notes (optional)</label>
+          <textarea class="form-control" id="notes" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Submit Emergency Request</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div id="resultArea" class="card-clean p-4">
+      <p class="text-muted mb-0">Submit the form to create the request and automatically run donor matching.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/request.js"></script>
+{% endblock %}

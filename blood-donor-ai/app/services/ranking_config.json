@@ -1,0 +1,12 @@
+{
+  "_comment": "Configurable weights for the donor ranking score. All weights should sum to 1.0. Adjust to tune how much each factor influences the final ranking.",
+  "weights": {
+    "ml_response_probability": 0.40,
+    "distance": 0.20,
+    "previous_response_rate": 0.15,
+    "current_availability": 0.10,
+    "expected_response_time": 0.10,
+    "urgency_alignment": 0.05
+  },
+  "max_distance_km_for_scoring": 30
+}

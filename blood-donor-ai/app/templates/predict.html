@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Prediction - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Donor Response Prediction</h4>
+<p class="text-muted">Enter sample donor/request characteristics to see the model's predicted response probability, with a plain-language explanation of the contributing factors.</p>
+
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card-clean p-4">
+      <form id="predictForm">
+        <div class="row g-2">
+          <div class="col-6">
+            <label class="form-label small">Age</label>
+            <input type="number" class="form-control" id="pAge" value="30" min="18" max="80" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Blood Group</label>
+            <select class="form-select" id="pGroup">
+              <option>O+</option><option>O-</option><option>A+</option><option>A-</option>
+              <option>B+</option><option>B-</option><option>AB+</option><option>AB-</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Total Donations</label>
+            <input type="number" class="form-control" id="pTotalDon" value="5" min="0" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Distance (km)</label>
+            <input type="number" class="form-control" id="pDistance" value="5" min="0" step="0.1" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Previous Requests Received</label>
+            <input type="number" class="form-control" id="pReceived" value="8" min="0" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Previous Requests Responded</label>
+            <input type="number" class="form-control" id="pResponded" value="5" min="0" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Avg. Response Time (min)</label>
+            <input type="number" class="form-control" id="pAvgTime" value="35" min="1" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Units Required</label>
+            <input type="number" class="form-control" id="pUnits" value="2" min="1" max="20" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Urgency</label>
+            <select class="form-select" id="pUrgency">
+              <option>Critical</option><option selected>High</option><option>Medium</option><option>Low</option>
+            </select>
+          </div>
+          <div class="col-6 d-flex align-items-end">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="pAvail" checked>
+              <label class="form-check-label small" for="pAvail">Currently available</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-danger w-100 mt-3">Predict Response Probability</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div id="predictResult" class="card-clean p-4 text-center">
+      <p class="text-muted mb-0">Fill the form and click predict to see the AI's output.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/predict.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+# These exact versions have been tested together and are known to work,
+# and are compatible with Python 3.11 and 3.12 on Windows/Mac/Linux.
+# (Newer FastAPI/Starlette releases changed the Jinja2Templates.TemplateResponse
+# argument order - this project already uses the current, correct order.
+# xgboost is pinned to 2.1.1 because 3.3+ requires Python 3.12+, which would
+# break installs on the very common Python 3.11.)
+
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+starlette==1.6.0
+jinja2==3.1.6
+python-multipart==0.0.32
+pydantic==2.13.5
+
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+xgboost==2.1.1
+joblib==1.5.3
+
+sqlalchemy==2.0.52
+bcrypt==4.0.1
+
+python-dotenv==1.2.2
+
+pytest==9.1.1
+httpx==0.28.1
+
+# Only required if you set DB_MODE=postgresql in .env
+# psycopg2-binary==2.9.9

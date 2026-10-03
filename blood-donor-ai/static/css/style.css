@@ -1,0 +1,141 @@
+:root {
+  --brand-red: #c0263d;
+  --brand-red-dark: #8f1c2d;
+  --brand-ink: #1f2430;
+  --brand-bg: #f6f7fb;
+  --brand-card: #ffffff;
+  --brand-muted: #6b7280;
+  --brand-success: #1e9e6b;
+  --brand-warning: #d9862c;
+  --brand-critical: #c0263d;
+}
+
+body {
+  background-color: var(--brand-bg);
+  color: var(--brand-ink);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.app-navbar {
+  background: linear-gradient(135deg, var(--brand-red-dark), var(--brand-red));
+}
+
+.app-navbar .nav-link {
+  font-weight: 500;
+}
+
+.app-navbar .nav-link.active {
+  color: #fff !important;
+  border-bottom: 2px solid #fff;
+}
+
+.disclaimer-strip {
+  background: #fff4e5;
+  color: #8a5a12;
+  border-bottom: 1px solid #f0d9a8;
+}
+
+.stat-card {
+  background: var(--brand-card);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(31, 36, 48, 0.06);
+  border: 1px solid rgba(31, 36, 48, 0.05);
+  height: 100%;
+}
+
+.stat-card .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  color: var(--brand-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chart-card {
+  background: var(--brand-card);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 10px rgba(31, 36, 48, 0.06);
+  border: 1px solid rgba(31, 36, 48, 0.05);
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.badge-urgency-Critical { background-color: var(--brand-critical); }
+.badge-urgency-High { background-color: var(--brand-warning); }
+.badge-urgency-Medium { background-color: #4b7bec; }
+.badge-urgency-Low { background-color: #8d9199; }
+
+.badge-response-High { background-color: var(--brand-success); }
+.badge-response-Medium { background-color: var(--brand-warning); }
+.badge-response-Low { background-color: var(--brand-muted); }
+
+.rank-badge {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--brand-red);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.donor-map {
+  height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.score-bar-bg {
+  background: #eceef2;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-red), var(--brand-warning));
+}
+
+.factor-chip {
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.15rem;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.factor-positive { background: #e7f7ef; color: var(--brand-success); }
+.factor-negative { background: #fdeaec; color: var(--brand-critical); }
+.factor-neutral { background: #eef1f6; color: var(--brand-muted); }
+
+.card-clean {
+  background: var(--brand-card);
+  border-radius: 14px;
+  border: 1px solid rgba(31,36,48,0.06);
+  box-shadow: 0 2px 10px rgba(31,36,48,0.05);
+}
+
+.loader {
+  border: 3px solid #eee;
+  border-top: 3px solid var(--brand-red);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

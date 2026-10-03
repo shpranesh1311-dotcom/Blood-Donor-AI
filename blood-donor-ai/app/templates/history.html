@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Request History - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Emergency Request History</h4>
+
+<div class="card-clean p-3 mb-3">
+  <div class="row g-2 align-items-end">
+    <div class="col-md-3">
+      <label class="form-label small mb-1">Status</label>
+      <select class="form-select form-select-sm" id="hfStatus">
+        <option value="">All</option>
+        <option value="pending">Pending</option>
+        <option value="matching_in_progress">Matching In Progress</option>
+        <option value="fulfilled">Fulfilled</option>
+        <option value="partially_fulfilled">Partially Fulfilled</option>
+        <option value="unfulfilled">Unfulfilled</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label small mb-1">Urgency</label>
+      <select class="form-select form-select-sm" id="hfUrgency">
+        <option value="">All</option>
+        <option>Critical</option><option>High</option><option>Medium</option><option>Low</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-sm btn-danger w-100" id="hfBtn">Filter</button>
+    </div>
+  </div>
+</div>
+
+<div class="card-clean p-3">
+  <div id="historyTableWrap" class="table-responsive">
+    <table class="table table-sm table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Request ID</th><th>Blood Group</th><th>Units</th><th>Urgency</th>
+          <th>Area</th><th>Requested At</th><th>Status</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="historyBody"><tr><td colspan="8" class="text-muted">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/history.js"></script>
+{% endblock %}

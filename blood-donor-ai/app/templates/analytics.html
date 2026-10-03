@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Analytics - Blood Donor AI{% endblock %}
+{% block content %}
+<h4 class="section-title">Analytics</h4>
+
+<div class="row g-3 mb-4">
+  <div class="col-lg-4 col-md-6">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Historical Response Rate by Blood Group</h6>
+      <canvas id="chartRateByGroup" height="220"></canvas>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Historical Response Rate by Urgency</h6>
+      <canvas id="chartRateByUrgency" height="220"></canvas>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="chart-card">
+      <h6 class="fw-bold mb-3">Response Time Distribution</h6>
+      <canvas id="chartTimeDist" height="220"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-6">
+    <div class="chart-card h-100">
+      <h6 class="fw-bold mb-3">Matching Activity</h6>
+      <div id="matchStats" class="text-muted">Loading...</div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="chart-card h-100">
+      <h6 class="fw-bold mb-3">ML Model Evaluation (from training run)</h6>
+      <div id="modelMetrics" class="text-muted">Loading...</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/analytics.js"></script>
+{% endblock %}

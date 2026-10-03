@@ -1,0 +1,9 @@
+{
+  "_comment": "DEMO eligibility parameters only. These are NOT medical guidelines. Real eligibility must be confirmed by a licensed blood bank / medical professional.",
+  "min_age": 18,
+  "max_age": 65,
+  "min_days_since_last_donation": 90,
+  "excluded_donor_status": ["inactive", "suspended"],
+  "require_current_availability": false,
+  "max_search_radius_km": 30
+}
